@@ -22,8 +22,8 @@ use Mix.Config
 #
 
 config :daily_bot,
-  token: "226492736:AAHFVg4GvUAXlszgCWEDd90aCLGGrwb25gs",
-  receiver_id: 14977303
+  token: "TOKEN",
+  receiver_id: receiver
 
 # It is also possible to import configuration files, relative to this
 # directory. For example, you can emulate configuration per environment
