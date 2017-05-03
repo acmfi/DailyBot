@@ -5,10 +5,14 @@ defmodule DailyBot do
   def start(_, _) do
     import Supervisor.Spec
 
+    rhost = Config.get(:daily_bot, :redis_host, "localhost")
+    rport = Config.get_integer(:daily_bot, :redis_port, 6379)
+
     children = [
+      worker(Redix, [[host: rhost, port: rport], [name: :redis, backoff_max: 5_000]]),
       supervisor(Telex, []),
       supervisor(DailyBot.Bot, [:updates, Application.get_env(:daily_bot, :token)]),
-      worker(Timer, [])
+      worker(Server, [])
     ]
 
     opts = [strategy: :one_for_one, name: DailyBot]

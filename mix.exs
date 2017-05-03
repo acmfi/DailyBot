@@ -33,7 +33,8 @@ defmodule DailyBot.Mixfile do
       {:telex, git: "git@github.com:rockneurotiko/telex.git", tag: "0.1.2"},
       {:timex, "~> 3.0"},
       {:distillery, "~> 1.3.0", runtime: false},
-      {:bunt, "~> 0.1.0"}
+      {:bunt, "~> 0.1.0"},
+      {:redix, ">= 0.0.0"}
     ]
   end
 end
